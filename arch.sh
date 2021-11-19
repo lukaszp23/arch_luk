@@ -16,7 +16,7 @@ echo "Initializing swap."
 mkswap /dev/sda2
 
 echo "Mounting file system."
-mount /dev/sda1 /mount
+mount /dev/sda1 /mnt
 
 echo "Enabling swap."
 swapon /dev/sda2
