@@ -40,7 +40,7 @@ echo "KEYMAP=pl" > /etc/vconsole.conf
 locale-gen
 
 echo "Setting hostname."
-echo "Kalarepa" >> /etc/hostname
+echo "Kalarepa" > /etc/hostname
 
 echo "Installing GRUB."
 pacman -S grub
