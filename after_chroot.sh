@@ -37,8 +37,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 exit
 
-echo "Installing XORG and sddm"
-pacman -S xorg sddm --noconfirm
+echo "Installing XORG"
+pacman -S xorg --noconfirm
 
 #echo "Installing NVIDIA driver"
 #pacman -Ss nvidia
