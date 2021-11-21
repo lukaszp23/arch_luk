@@ -10,7 +10,7 @@ echo "KEYMAP=pl" > /etc/vconsole.conf
 locale-gen
 
 echo "Changing root password."
-passwd
+(echo 'root'; echo 'root') | passwd
 
 echo "Setting hostname."
 echo "Kalarepa" > /etc/hostname
