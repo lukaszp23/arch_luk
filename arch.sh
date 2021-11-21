@@ -21,10 +21,13 @@ mount /dev/sda1 /mnt
 echo "Enabling swap."
 swapon /dev/sda2
 
+echo "Enable parallel download."
+sed -i '/ParallelDownloads/ s/#//' /etc/pacman.conf
+
 echo "Installing essential packages."
 pacstrap /mnt base linux linux-firmware
 
-echo "Generating fstab"
+echo "Generating fstab."
 genfstab -U /mnt >> /mnt/etc/fstab
 
 echo "Chroot"
@@ -46,11 +49,11 @@ echo "Setting hostname."
 echo "Kalarepa" > /etc/hostname
 
 echo "Installing GRUB."
-pacman -S grub
+yes | pacman -S grub
 grub-install --target=i386-pc /dev/sda1
 
 echo "Generating GRUB config."
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Installing XORG."
-pacman -S xorg
+yes | pacman -S xorg
