@@ -30,5 +30,8 @@ pacstrap /mnt base linux linux-firmware
 echo "Generating fstab."
 genfstab -U /mnt >> /mnt/etc/fstab
 
+echo "Move script file to /mnt/home"
+cp ./after_chroot.sh /mnt/home
+
 echo "Chroot"
-arch-chroot /mnt ./after_chroot.sh
+arch-chroot /mnt /home/after_chroot.sh
