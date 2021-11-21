@@ -19,6 +19,9 @@ echo "Creating user luk"
 groupadd luk
 useradd -m -G luk wheel adm luk
 
+echo "Changing luk password"
+(echo '1234'; echo '1234') | passwd
+
 echo "Installing sudo"
 pacman -S sudo --noconfirm
 sed '/%wheel ALL=(ALL) ALL/ s/# //' /etc/sudoers > /etc/sudoers_new
@@ -34,5 +37,22 @@ pacman -S intel-ucode --noconfirm
 
 echo "Generating GRUB config"
 grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "Installing XORG"
+pacman -S xorg --noconfirm
+
+#echo "Installing NVIDIA driver"
+#pacman -Ss nvidia
+
+echo "Installing KDE Plasma"
+pacman -S plasma-meta kde-applications --noconfirm
+#pacman -S egl-wayland
+
+echo "Enabling services"
+systemctl enable sddm
+systemctl enable NetworkManager
+
+echo "Setting KDE theme"
+sed -i 's/Current=/Current=brezze/' /usr/lib/sddm/sddm.conf.d/default.conf
 
 exit

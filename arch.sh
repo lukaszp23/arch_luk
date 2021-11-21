@@ -42,20 +42,3 @@ cp ./after_chroot.sh /mnt/home
 
 echo "Chroot"
 arch-chroot /mnt /home/after_chroot.sh
-
-echo "Installing XORG"
-pacman -S xorg --noconfirm
-
-#echo "Installing NVIDIA driver"
-#pacman -Ss nvidia
-
-echo "Installing KDE Plasma"
-pacman -S plasma-meta --noconfirm
-#pacman -S egl-wayland
-
-echo "Enabling services"
-systemctl enable sddm
-systemctl enable NetworkManager
-
-echo "Setting KDE theme"
-sed -i 's/Current=/Current=brezze/' /usr/lib/sddm/sddm.conf.d/default.conf
