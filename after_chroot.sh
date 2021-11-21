@@ -17,7 +17,7 @@ echo "Kalarepa" > /etc/hostname
 
 echo "Installing GRUB."
 yes | pacman -S grub
-grub-install --target=i386-pc /dev/sda1
+grub-install --target=i386-pc /dev/sda
 
 echo "Generating GRUB config."
 grub-mkconfig -o /boot/grub/grub.cfg
