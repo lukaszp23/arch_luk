@@ -31,6 +31,7 @@ echo "Generating fstab."
 genfstab -U /mnt >> /mnt/etc/fstab
 
 echo "Move script file to /mnt/home"
+chmod u+x ./after_chroot.sh
 cp ./after_chroot.sh /mnt/home
 
 echo "Chroot"
