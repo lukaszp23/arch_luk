@@ -16,11 +16,11 @@ echo "Setting hostname."
 echo "Kalarepa" > /etc/hostname
 
 echo "Installing GRUB."
-yes | pacman -S grub
+pacman -S grub --noconfirm
 grub-install --target=i386-pc /dev/sda
 
 echo "Generating GRUB config."
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Installing XORG."
-yes | pacman -S xorg
+pacman -S xorg --noconfirm
