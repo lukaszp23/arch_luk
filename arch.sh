@@ -3,6 +3,9 @@
 echo "Updating system clock"
 timedatectl set-ntp true
 
+echo "Creating boot partition"
+sgdisk -n 3:0:+1M -t 0:ef02 /dev/sda
+
 echo "Creating swap partition"
 sgdisk -n 2:0:+24GiB -t 0:8200 /dev/sda
 
@@ -17,6 +20,9 @@ mkswap /dev/sda2
 
 echo "Mounting file system"
 mount /dev/sda1 /mnt
+
+echo "Mounting boot partition"
+mount /dev/sda3 /boot
 
 echo "Enabling swap"
 swapon /dev/sda2
