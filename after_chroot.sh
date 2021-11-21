@@ -24,5 +24,3 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Installing XORG"
 pacman -S xorg --noconfirm
-
-echo "Rebooting"
