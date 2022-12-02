@@ -42,7 +42,8 @@ echo "Installing XORG"
 pacman -S xorg --noconfirm
 
 #echo "Installing NVIDIA driver"
-#pacman -Ss nvidia
+#pacman -Ss nvidia --noconfirm
+pacman -S xf86-video-vmware --noconfirm
 
 echo "Installing KDE Plasma"
 pacman -S plasma-meta kde-applications --noconfirm
